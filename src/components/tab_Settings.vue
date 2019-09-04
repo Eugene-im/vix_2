@@ -67,9 +67,9 @@
 
 <script>
 export default {
-  name: "tabSettings",
+  name: 'tabSettings',
   data: {
     visible: false
   }
-};
+}
 </script>

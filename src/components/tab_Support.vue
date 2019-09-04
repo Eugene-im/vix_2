@@ -46,9 +46,9 @@
 
 <script>
 export default {
-  name: "tabSupport",
+  name: 'tabSupport',
   data: {
     visible: false
   }
-};
+}
 </script>

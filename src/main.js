@@ -7,7 +7,7 @@ import enLocale from './locales/en'
 import ukLocale from './locales/uk'
 import lang from './config'
 Vue.config.productionTip = false
-Vue.use(VueI18n);
+Vue.use(VueI18n)
 
 // var language = null;
 

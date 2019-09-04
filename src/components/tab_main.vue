@@ -13,13 +13,12 @@
   </div>
 </template>
 
-
 <script>
 export default {
-  name: "tabMain",
+  name: 'tabMain',
   data: {}
-};
+}
 </script>
 <style lang="scss">
-@import "../assets/style/_tab_main.scss";
+@import '../assets/style/_tab_main.scss';
 </style>

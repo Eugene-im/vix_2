@@ -1,70 +1,39 @@
 <template>
-  <!-- <div class="form__main">
+  <div class="form__main">
     <div class="wraper__main">
       <div class="content">
         <div class="main__about">
-          <div class="about__logo"></div>
+          <img class="about__logo" src="../assets/img/v.svg">
           <div class="about__description">
             <h2 class="description__title">vCita</h2>
-            <div class="description__text">
-              vCita is the #1 business management and client engagement app,
-              designed to help small businesses grow.
-            </div>
+            <div class="description__text">{{ $t("settings.vcitaDescription") }}</div>
           </div>
         </div>
       </div>
     </div>
 
-        <div >
-          <div >Main</div>
-          <div >Settings</div>
-          <div class="block__item tab__item_3">Design</div>
-          <div class="block__item tab__item_4">More</div>
-          <div class="block__item tab__item_5">Support</div>
-      </div>
-      <div class="items__block">
-        <div class="content">
-          
-        </div>
-      </div>
-    </div>
-  </div>-->
-  <!-- ******* -->
-
-  <!-- <template> -->
-  <div class="form__main">
-    <div class="wraper__main">
-            <div class="content">
-                <div class="main__about">
-                    <img class="about__logo" src="../assets/img/v.svg" />
-                    <div class="about__description">
-                        <h2 class="description__title">vCita</h2>
-                        <div class="description__text">{{ $t("settings.vcitaDescription") }}</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     <div class="tabs__main">
-      <div class="content">
-        <tabs>
-          <tab class="block__item tab__item_1" title="Main">
-            <tabMain/>
-          </tab>
-          <tab class="block__item tab__item_2" title="Settings">
-            <tabSettings/>
-          </tab>
-          <tab class="block__item tab__item_3" title="Design">
-            <tabDesign/>
-          </tab>
-          <tab class="block__item tab__item_4" title="More">
-            <tabMore/>
-          </tab>
-          <tab class="block__item tab__item_5" title="Support">
-            <tabSupport/>
-          </tab>
-        </tabs>
-      </div>
+      <tabs>
+        <tab class="block__item tab__item_1" title="Main">
+          <tabMain/>
+        </tab>
+        <tab class="block__item tab__item_2" title="Settings">
+          <tabSettings/>
+        </tab>
+        <tab class="block__item tab__item_3" title="Design">
+          <tabDesign/>
+        </tab>
+        <tab class="block__item tab__item_4" title="More">
+          <tabMore/>
+        </tab>
+        <tab class="block__item tab__item_5" title="Support">
+          <tabSupport/>
+        </tab>
+      </tabs>
+    </div>
+    <div class="tabs__footer">
+      <p>You are logged in to vCita payments as:</p>
+      <p class="who__email">baruch@dego.com</p>
     </div>
   </div>
 </template>

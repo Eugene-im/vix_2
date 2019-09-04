@@ -36,6 +36,10 @@
 	margin-right: 14px;
 }
 
+.button_square {
+	border-radius: 4px;
+}
+
 .top__title {
 	font-family: Helvetica;
 	font-size: 16px;
@@ -100,6 +104,8 @@
 	padding: 10px 0;
 	text-align: center;
 	cursor: pointer;
+	border-top: 1px solid #d8dde6;
+	margin-top: -1px;
 }
 
 .block__item_active {
@@ -287,6 +293,7 @@
 
 .tabs__input__variants_button-text {
 	height: 90px;
+	max-width: 150px;
 	align-content: space-around;
 }
 
@@ -391,9 +398,10 @@
 	color: #21afea;
 }
 
+
 // raiting
 
-.tab__userblock_reit{
+.tab__userblock_reit {
 	max-width: 256px;
 	width: 100%;
 	display: flex;
@@ -403,70 +411,66 @@
 
 .rating {
 	width: 100%;
-    overflow: hidden;
-    display: inline-block;
+	overflow: hidden;
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-between;
 }
 
 .rating-input {
-    float: right;
-    width: 42px;
-    height: 42px;
-    padding: 0;
-    margin: 0 0 0 -42px;
-    opacity: 0;
-}
-
-.rating-star {
-    cursor: pointer;
-    position: relative;
-    display: block;
-    width: 42px;
-    height: 42px;
-    background: url('../assets/img/star.png') no-repeat 0 -42px /cover;
-}
-
-.rating-star:hover {
-    background-position: 0 0;
-}
-
-.rating-star {
-    position: relative;
-    float: right;
-    display: block;
-    width: 42px;
-    height: 42px;
-    background: url('../assets/img/star.png') no-repeat 0 -42px /cover;
-}
-
-.rating-star:hover,
-.rating-star:hover ~ .rating-star {
-    background-position: 0 0;
-}
-
-.rating-star:hover,
-.rating-star:hover ~ .rating-star,
-.rating-input:checked ~ .rating-star {
-    background-position: 0 0;
+	// float: right;
+	width: 42px;
+	height: 42px;
+	padding: 0;
+	margin: 0 0 0 -42px;
+	opacity: 0;
 }
 
 .rating:hover .rating-star:hover,
-.rating:hover .rating-star:hover ~ .rating-star,
-.rating-input:checked ~ .rating-star {
-    background-position: 0 0;
+.rating:hover .rating-star:hover~.rating-star,
+.rating-input:checked~.rating-star {
+	background-position: -10px -10px;
 }
 
 .rating-star,
 .rating:hover .rating-star {
-    position: relative;
-    float: right;
-    display: block;
-    width: 42px;
-    height: 42px;
-    background: url('../assets/img/star.png') no-repeat 0 -42px /cover;
+	position: relative;
+	float: right;
+	display: block;
+	width: 42px;
+	height: 42px;
+	background: url('../assets/img/css_sprites.png') no-repeat -80px -10px;
 }
 
-.reit__text{
+.reit__text {
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
+}
+
+.button__block__item__text {
+	line-height: 33px;
+	padding: 0 20px;
+}
+
+.vue-tab {
+	width: 88px;
+	font-size: 12px;
+	border: 1px solid transparent;
+	padding: 10px 0;
+	text-align: center;
+	// cursor: pointer;
+	color: #4d5d7e;
+	font-family: Raleway;
+
+}
+
+.vue-tab[aria-selected="true"] {
+	background: #fff;
+	border: 1px solid #d8dde6;
+	border-top: 2px solid #21afea;
+	border-bottom: 1px solid transparent;
+	font-weight: 700;
+	color: #21afea;
+	border-radius: 5px 5px 0 0;
 }

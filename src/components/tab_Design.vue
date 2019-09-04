@@ -10,19 +10,25 @@
         <div class="tab__active__title">Button will be used for</div>
         <div class="tabs__input_radio_horizontal">
           <div class="tabs__input__variants_button-text">
-            <input type="radio" name="payment__method" id="Pay">
-            <label class="input__variant" for="Pay">Pay</label>
-            <div class="button__block__item">Pay</div>
+            <input checked type="radio" name="payment__method" id="Pay">
+            <label class="input__variant" for="Pay">Self service</label>
+            <div class="button__block__item button_square">
+              <div class="button__block__item__text">Pay</div>
+            </div>
           </div>
           <div class="tabs__input__variants_button-text">
             <input type="radio" name="payment__method" id="Buy">
-            <label class="input__variant" for="Buy">Buy</label>
-            <div class="button__block__item">Buy</div>
+            <label class="input__variant" for="Buy">Self products</label>
+            <div class="button__block__item button_square">
+              <div class="button__block__item__text">Buy</div>
+            </div>
           </div>
           <div class="tabs__input__variants_button-text">
             <input type="radio" name="payment__method" id="Donate">
-            <label class="input__variant" for="Donate">Donate</label>
-            <div class="button__block__item">Donate</div>
+            <label class="input__variant" for="Donate">Accept donations</label>
+            <div class="button__block__item button_square">
+              <div class="button__block__item__text">Donate</div>
+            </div>
           </div>
         </div>
       </div>
@@ -133,9 +139,9 @@
 
 <script>
 export default {
-  name: "tabDesign",
+  name: 'tabDesign',
   data: {
     visible: false
   }
-};
+}
 </script>
