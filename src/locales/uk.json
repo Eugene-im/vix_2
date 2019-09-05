@@ -4,6 +4,38 @@
         "settings": "Налаштування"
     },
     "settings": {
-        "vcitaDescription": "vCita - це програма №1 для управління бізнесом та залучення клієнтів, розроблена для того, щоб допомогти малому бізнесу зростати. Привіт Світ!!"
+        "vcitaDescription": "vCita - це програма №1 для управління бізнесом та залучення клієнтів, створена для того, щоб допомогти малому бізнесу зростати."
+    },
+    "supportTab": {
+        "callToAsk": "Спитайте нас про щось",
+        "callToFeedback": "Надішліть нам відгук",
+        "callToFAQ": "Прочитати FAQ",
+        "callToRate": "Оцініть нас",
+        "minRate": "Погано",
+        "maxRate": "Бездоганно"
+    },
+    "designTab": {
+        "callToDesign": "Створи дизайн для своєї кнопки",
+        "kindOfButtonText": "Кнопка буде використана для",
+        "buttonVariantLabelSelfService": "сервіси",
+        "buttonVariantSelfService": "Сплатити",
+        "buttonVariantLabelSelfProducts": "речі",
+        "buttonVariantSelfProducts": "Купити",
+        "buttonVariantLabelDonate": "Приймаю пожертви",
+        "buttonVariantDonate": "Пожертвувати",
+        "chooseLang": "Мова",
+        "freeText": "Свій текст",
+        "optional": "За бажання",
+        "usePP": "Використовувати іконку PayPal на кнопці",
+        "useWixColorSheme": "Використовувати кольорову схему WIX",
+        "creditCardIcons": "Іконки кредитних карт",
+        "askResetFrase": "Не подобається дизайн кнопки?",
+        "resetButton": "Скинути"
+    },
+    "mainTab": {
+        "connectTo": "Підключитися до свого каналу",
+        "callToDesign": "Створи дизайн для своєї кнопки. Повеселимось?",
+        "buttonConnectPayment": "Підключитися до свого каналу оплати",
+        "buttonDesign": "Створи дизайн для своєї платіжної кнопки"
     }
 }

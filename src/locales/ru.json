@@ -1,9 +1,41 @@
 {
     "buttonHead": {
-        "button": "кнопка",
-        "settings": "настройки"
+        "button": "Кнопка",
+        "settings": "Настройки"
     },
     "settings": {
-        "vcitaDescription": "vCita - это приложение для управления бизнесом и взаимодействия с клиентами, которое призвано помочь малым предприятиям расти Привет, мир!!"
+        "vcitaDescription": "vCita - это приложение №1 для управления бизнесом и взаимодействия с клиентами, которое призвано помочь малым предприятиям развиваться."
+    },
+    "supportTab": {
+        "callToAsk": "Спросите нас что угодно!",
+        "callToFeedback": "Отправьте нам свое мнение",
+        "callToFAQ": "Прочтите FAQ",
+        "callToRate": "Оцените нас",
+        "minRate": "Плохо",
+        "maxRate": "Отлично"
+    },
+    "designTab": {
+        "callToDesign": "Сделай дизайн своей кнопке",
+        "kindOfButtonText": "Кнопка будет использоваться для",
+        "buttonVariantLabelSelfService": "Сервисы",
+        "buttonVariantSelfService": "Оплатить",
+        "buttonVariantLabelSelfProducts": "Продукт",
+        "buttonVariantSelfProducts": "Купить",
+        "buttonVariantLabelDonate": "Принимается донат",
+        "buttonVariantDonate": "Помочь",
+        "chooseLang": "Язык",
+        "freeText": "Свой текст",
+        "optional": "На выбор",
+        "usePP": "Использовать PayPal иконку на кнопке",
+        "useWixColorSheme": "Использовать цветовую схему Wix",
+        "creditCardIcons": "Иконки кредитных карт",
+        "askResetFrase": "Не нравится Ваш дизайн?",
+        "resetButton": "Сброс"
+    },
+    "mainTab": {
+        "connectTo": "Подключитесь к вашему шлюзу.",
+        "callToDesign": "Создай свою кнопку. Начни веселье!",
+        "buttonConnectPayment": "Подключите платежный шлюз",
+        "buttonDesign": "Создать дизайн для своей платёжной кнопки"
     }
 }
