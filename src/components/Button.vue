@@ -2,7 +2,7 @@
   <div class="button__wrapper">
     <a href="/#/settings" style="text-decoration: none" class="call-settings__block">
       <div class="call-settings__icn">
-          <img src="../assets/img/rectangle-46.svg" alt>
+        <img src="../assets/img/rectangle-46.svg" alt>
       </div>
       <div class="call-settings__description">
         <span class="call-settings__description_f-line">Double click to configure</span>
@@ -35,8 +35,11 @@
 </template>
 
 <script>
+import tabDesign from "./tab_Design";
+import { EventBus } from "../event-bus.js";
 export default {
   name: "ButtonVcita",
+  props: ["checkboxes"],
   methods: {
     getLanguage: async function() {
       // axios.get('URL').then(
@@ -45,6 +48,12 @@ export default {
       //  }
       //);
     }
+  },
+  mounted() {
+    // Listen for the 'clicked-event' and its payload.
+    EventBus.$on("clicked-event", Count => {
+      console.log(`Oh, that's great. It's gotten ${Count} clicks! :)`);
+    });
   }
 };
 </script>

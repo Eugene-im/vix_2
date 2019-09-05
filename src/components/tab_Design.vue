@@ -2,32 +2,41 @@
   <div class="tabs__item item_3">
     <div class="tab__content">
       <div class="tab__content__title">
-        <p class="tab__content__title_large">Design Your Button</p>
+        <p class="tab__content__title_large">{{ $t("designTab.callToDesign") }}</p>
       </div>
     </div>
     <div class="tabs__row">
       <div class="tab__content">
-        <div class="tab__active__title">Button will be used for</div>
+        <div class="tab__active__title">{{ $t("designTab.kindOfButtonText") }}</div>
         <div class="tabs__input_radio_horizontal">
           <div class="tabs__input__variants_button-text">
             <input checked type="radio" name="payment__method" id="Pay">
-            <label class="input__variant" for="Pay">Self service</label>
+            <label
+              class="input__variant"
+              for="Pay"
+            >{{ $t("designTab.buttonVariantLabelSelfService") }}</label>
             <div class="button__block__item button_square">
-              <div class="button__block__item__text">Pay</div>
+              <div class="button__block__item__text">{{ $t("designTab.buttonVariantSelfService") }}</div>
             </div>
           </div>
           <div class="tabs__input__variants_button-text">
             <input type="radio" name="payment__method" id="Buy">
-            <label class="input__variant" for="Buy">Self products</label>
+            <label
+              class="input__variant"
+              for="Buy"
+            >{{ $t("designTab.buttonVariantLabelSelfProducts") }}</label>
             <div class="button__block__item button_square">
-              <div class="button__block__item__text">Buy</div>
+              <div class="button__block__item__text">{{ $t("designTab.buttonVariantSelfProducts") }}</div>
             </div>
           </div>
           <div class="tabs__input__variants_button-text">
             <input type="radio" name="payment__method" id="Donate">
-            <label class="input__variant" for="Donate">Accept donations</label>
+            <label
+              class="input__variant"
+              for="Donate"
+            >{{ $t("designTab.buttonVariantLabelDonate") }}</label>
             <div class="button__block__item button_square">
-              <div class="button__block__item__text">Donate</div>
+              <div class="button__block__item__text">{{ $t("designTab.buttonVariantDonate") }}</div>
             </div>
           </div>
         </div>
@@ -35,11 +44,10 @@
     </div>
     <div class="tabs__row">
       <div class="tab__content">
-        <div class="tab__active__title">Language</div>
+        <div class="tab__active__title">{{ $t("designTab.chooseLang") }}</div>
         <div class="tabs__input_select">
-          <select name id>
-            <option selected="selected" value="val1">val1</option>
-            <option value="val2">val2</option>
+          <select v-model="$i18n.locale">
+            <option v-for="(lang, i) in langs" :key="`Lang${i}`" :value="lang" selected>{{ lang }}</option>
           </select>
         </div>
       </div>
@@ -47,8 +55,10 @@
     <div class="tabs__row">
       <div class="tab__content">
         <div class="tab__active__title">
-          Free text
-          <span class="tab__active__title_small">(Optinal)</span>
+          {{ $t("designTab.freeText") }}
+          <span
+            class="tab__active__title_small"
+          >({{ $t("designTab.optional") }})</span>
         </div>
         <div class="tabs__input_text">
           <input type="text" placeholder="text">
@@ -60,7 +70,7 @@
         <div class="tab__active__title_checkbox">
           <span>
             <input type="checkbox" name="payment__method" id="paypal2">
-            <label class="input__variant" for="paypal2">Use PayPal icon on button</label>
+            <label class="input__variant" for="paypal2">{{ $t("designTab.usePP") }}</label>
           </span>
           <img src="../assets/img/paypal.svg" alt>
         </div>
@@ -71,46 +81,46 @@
         <div class="tab__active__title_checkbox">
           <span>
             <input type="checkbox" name="payment__method" id="wixColor">
-            <label class="input__variant" for="wixColor">Use your Wix color scheme</label>
+            <label class="input__variant" for="wixColor">{{ $t("designTab.useWixColorSheme") }}</label>
           </span>
         </div>
       </div>
     </div>
     <div class="tabs__row">
       <div class="tab__content">
-        <div class="tab__active__title">Credit card icons</div>
+        <div class="tab__active__title">{{ $t("designTab.creditCardIcons") }}</div>
         <div class="tabs__input_checkbox">
           <p class="tabs__input__variants_ch">
             <span>
-              <input type="checkbox" id="ae">
+              <input type="checkbox" id="ae" ref="americanExpress" @click="emitGlobalClickEvent">
               <label class="input__variant" for="ae">American Express</label>
             </span>
             <img src="../assets/img/american-express-dark_x2.svg" alt>
           </p>
           <p class="tabs__input__variants_ch">
             <span>
-              <input type="checkbox" id="dis">
+              <input type="checkbox" id="dis" ref="discover">
               <label class="input__variant" for="dis">Discover</label>
             </span>
             <img src="../assets/img/discover-dark_x2.svg" alt>
           </p>
           <p class="tabs__input__variants_ch">
             <span>
-              <input type="checkbox" id="visa">
+              <input type="checkbox" id="visa" ref="Visa">
               <label class="input__variant" for="visa">Visa</label>
             </span>
             <img src="../assets/img/visa-dark_x2.svg" alt>
           </p>
           <p class="tabs__input__variants_ch">
             <span>
-              <input type="checkbox" id="mc">
+              <input type="checkbox" id="mc" ref="masterCard">
               <label class="input__variant" for="mc">Master Card</label>
             </span>
             <img src="../assets/img/master-card-dark_x2.svg" alt>
           </p>
           <p class="tabs__input__variants_ch">
             <span>
-              <input type="checkbox" id="paypal">
+              <input type="checkbox" id="paypal" ref="payPal">
               <label class="input__variant" for="paypal">PayPal</label>
             </span>
             <img src="../assets/img/paypal-light_x2.svg" alt>
@@ -129,8 +139,10 @@
     <div class="tabs__row last">
       <div class="tab__content">
         <div class="tabs__input_text_reset">
-          Not happy with your desing?
-          <span class="button_reset">Reset button</span>
+          {{ $t("designTab.askResetFrase") }}
+          <span
+            class="button_reset"
+          >{{ $t("designTab.resetButton") }}</span>
         </div>
       </div>
     </div>
@@ -138,10 +150,25 @@
 </template>
 
 <script>
+// import lang from '../../config'
+import { EventBus } from "../event-bus.js";
+
 export default {
-  name: 'tabDesign',
-  data: {
-    visible: false
+  name: "tabDesign",
+  data() {
+    return {
+      visible: false,
+      message: "",
+      Count: 0,
+      langs: ["en", "ru", "uk"]
+    };
+  },
+  methods: {
+    emitGlobalClickEvent() {
+      this.Count++;
+      // Send the event on a channel (i-got-clicked) with a payload (the click count.)
+      EventBus.$emit("clicked-event", this.Count);
+    }
   }
-}
+};
 </script>

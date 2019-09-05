@@ -12,3 +12,17 @@
 <style lang="scss">
 @import './assets/style/main.scss';
 </style>
+
+<script>
+export default {
+  data(){
+    return {
+    }
+  },
+  methods: {
+    
+  }
+}
+</script>
+
+

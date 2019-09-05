@@ -6,6 +6,37 @@
     },
     "settings": {
         "vcitaDescription": "vCita is the #1 business management and client engagement app, designed to help small businesses grow."
+    },
+    "supportTab": {
+        "callToAsk": "Ask Us Anything",
+        "callToFeedback": "Send us a feedback",
+        "callToFAQ": "Read our FAQ",
+        "callToRate": "Rate Us",
+        "minRate": "Poor",
+        "maxRate": "Excelent"
+    },
+    "designTab": {
+        "callToDesign":"Design Your Button",
+        "kindOfButtonText":"Button will be used for",
+        "buttonVariantLabelSelfService":"Self service",
+        "buttonVariantSelfService":"Pay",
+        "buttonVariantLabelSelfProducts":"Self products",
+        "buttonVariantSelfProducts":"Buy",
+        "buttonVariantLabelDonate":"Accept donations",
+        "buttonVariantDonate":"Donate",
+        "chooseLang":"Language",
+        "freeText":"Free text",
+        "optional":"Optional",
+        "usePP":"Use PayPal icon on button",
+        "useWixColorSheme":"Use your Wix color scheme",
+        "creditCardIcons":"Credit card icons",
+        "askResetFrase":"Not happy with your desing?",
+        "resetButton":"Reset button"
+    },
+    "mainTab":{
+        "connectTo":"Connect to your gateway.",
+        "callToDesign":"Design your button. Start cha-chinging!",
+        "buttonConnectPayment":"Connect Payment Gateway",
+        "buttonDesign":"Design Your Pay Button"
     }
-
 }

@@ -15,7 +15,7 @@
         <div class="tab__active__title">Get payments with</div>
         <div class="tabs__input_radio">
           <p class="tabs__input__variants">
-            <input type="radio" name="payment__method" id="PP">
+            <input type="radio" name="payment__method" id="PP" >
             <label class="input__variant" for="PP">PayPall</label>
           </p>
           <p class="tabs__input__variants">

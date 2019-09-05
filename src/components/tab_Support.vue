@@ -2,22 +2,22 @@
   <div class="tabs__item item_5">
     <div class="tab__content">
       <div class="tab__content__title">
-        <p class="tab__content__title_large">Ask Us Anything</p>
+        <p class="tab__content__title_large">{{ $t("supportTab.callToAsk") }}</p>
       </div>
       <div class="tab__content__active">
         <div class="tab__userblock">
           <a href="#" class="userblock__item">
             <img class="userblock__item__img" src="../assets/img/envelopes.svg" alt>
-            <div class="userblock__item__text">Send us a feedback</div>
+            <div class="userblock__item__text">{{ $t("supportTab.callToFeedback") }}</div>
           </a>
           <a href="#" class="userblock__item">
             <img class="userblock__item__img" src="../assets/img/computer-invite-to-client-portal.svg" alt>
-            <div class="userblock__item__text">Read our FAQ</div>
+            <div class="userblock__item__text">{{ $t("supportTab.callToFAQ") }}</div>
           </a>
         </div>
       </div>
       <div class="tab__content__title">
-        <p class="tab__content__title_large">Ask Us Anything</p>
+        <p class="tab__content__title_large">{{ $t("supportTab.callToRate") }}</p>
       </div>
       <div class="tab__content__active">
         <!-- active part here -->
@@ -35,8 +35,8 @@
             <label for="rating-input-1-1" class="rating-star"></label>
           </span>
           <div class="reit__text">
-            <div class="text_poor">Poor</div>
-            <div class="text__ex">Excelent</div>
+            <div class="text_poor">{{ $t("supportTab.minRate") }}</div>
+            <div class="text__ex">{{ $t("supportTab.maxRate") }}</div>
           </div>
         </div>
       </div>

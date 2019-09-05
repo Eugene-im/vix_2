@@ -6,9 +6,9 @@ import ruLocale from './locales/ru'
 import enLocale from './locales/en'
 import ukLocale from './locales/uk'
 import lang from './config'
+// import tabDesign from './components/tab_Design'
 Vue.config.productionTip = false
 Vue.use(VueI18n)
-
 // var language = null;
 
 const messages = {
@@ -18,6 +18,7 @@ const messages = {
 }
 
 const i18n = new VueI18n({
+  // locale: tabDesign.message,
   locale: lang.locale, // set locale
   messages// set locale messages
 })
