@@ -99,28 +99,52 @@
           </p>
           <p class="tabs__input__variants_ch">
             <span>
-              <input type="checkbox" id="dis" ref="discover">
+              <input
+                type="checkbox"
+                id="dis"
+                value="dis"
+                ref="discover"
+                @click="emitGlobalClickEvent"
+              >
               <label class="input__variant" for="dis">Discover</label>
             </span>
             <img src="../assets/img/discover-dark_x2.svg" alt>
           </p>
           <p class="tabs__input__variants_ch">
             <span>
-              <input type="checkbox" id="visa" ref="Visa">
+              <input
+                type="checkbox"
+                id="visa"
+                value="visa"
+                ref="Visa"
+                @click="emitGlobalClickEvent"
+              >
               <label class="input__variant" for="visa">Visa</label>
             </span>
             <img src="../assets/img/visa-dark_x2.svg" alt>
           </p>
           <p class="tabs__input__variants_ch">
             <span>
-              <input type="checkbox" id="mc" ref="masterCard">
+              <input
+                type="checkbox"
+                id="mc"
+                value="mc"
+                ref="masterCard"
+                @click="emitGlobalClickEvent"
+              >
               <label class="input__variant" for="mc">Master Card</label>
             </span>
             <img src="../assets/img/master-card-dark_x2.svg" alt>
           </p>
           <p class="tabs__input__variants_ch">
             <span>
-              <input type="checkbox" id="paypal" ref="payPal">
+              <input
+                type="checkbox"
+                id="paypal"
+                value="paypal"
+                ref="payPal"
+                @click="emitGlobalClickEvent"
+              >
               <label class="input__variant" for="paypal">PayPal</label>
             </span>
             <img src="../assets/img/paypal-light_x2.svg" alt>
@@ -151,6 +175,7 @@
 
 <script>
 // import lang from '../../config'
+
 import { EventBus } from "../event-bus.js";
 
 export default {
@@ -164,10 +189,13 @@ export default {
     };
   },
   methods: {
-    emitGlobalClickEvent() {
-      this.Count++;
+    emitGlobalClickEvent(event) {
       // Send the event on a channel (i-got-clicked) with a payload (the click count.)
-      EventBus.$emit("clicked-event", this.Count);
+      EventBus.$emit("clicked-event", {
+        id: event.target.id,
+        checked: event.target.checked,
+        value: event.target.value
+      });
     }
   }
 };

@@ -14,20 +14,20 @@
     <div class="button__block">
       <button class="button__block__item button__block__item_front">{{ $t("buttonHead.button") }}</button>
       <div class="button__block__icons">
-        <div class="block__icons__item">
-          <img src="../assets/img/paypal-light.svg" alt>
+        <div class="block__icons__item" >
+          <img src="../assets/img/paypal-light.svg" v-if="currentStatus && currentId == 'ae'" alt>
+        </div>
+        <div class="block__icons__item" >
+          <img src="../assets/img/master-card-dark.svg" v-if="currentStatus && currentId == 'dis'" alt>
         </div>
         <div class="block__icons__item">
-          <img src="../assets/img/master-card-dark.svg" alt>
+          <img src="../assets/img/visa-dark.svg" v-if="currentStatus && currentId == 'visa'" alt>
         </div>
         <div class="block__icons__item">
-          <img src="../assets/img/visa-dark.svg" alt>
+          <img src="../assets/img/discover-dark.svg" v-if="currentStatus && currentId == 'mc'" alt>
         </div>
         <div class="block__icons__item">
-          <img src="../assets/img/discover-dark.svg" alt>
-        </div>
-        <div class="block__icons__item">
-          <img src="../assets/img/american-express-dark.svg" alt>
+          <img src="../assets/img/american-express-dark.svg" v-if="currentStatus && currentId == 'paypal'" alt>
         </div>
       </div>
     </div>
@@ -40,6 +40,12 @@ import { EventBus } from "../event-bus.js";
 export default {
   name: "ButtonVcita",
   props: ["checkboxes"],
+  data() {
+    return {
+      currentStatus: null,
+      currentId: null,
+    }
+  },
   methods: {
     getLanguage: async function() {
       // axios.get('URL').then(
@@ -51,8 +57,10 @@ export default {
   },
   mounted() {
     // Listen for the 'clicked-event' and its payload.
-    EventBus.$on("clicked-event", Count => {
-      console.log(`Oh, that's great. It's gotten ${Count} clicks! :)`);
+    EventBus.$on("clicked-event", res => {
+      this.currentStatus = res.checked;
+      this.currentId = res.id;
+      console.log(this.currentId, this.currentStatus);
     });
   }
 };
