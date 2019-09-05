@@ -48,7 +48,7 @@ import tabSettings from "@/components/tab_Settings.vue";
 import tabDesign from "@/components/tab_Design.vue";
 import tabMore from "@/components/tab_More.vue";
 import tabSupport from "@/components/tab_Support.vue";
-import ButtonVcita from '@/components/Button.vue'
+import ButtonVcita from "@/components/Button.vue";
 
 export default {
   name: "Settings",
@@ -60,7 +60,7 @@ export default {
     tabDesign,
     tabMore,
     tabSupport,
-    ButtonVcita    
+    ButtonVcita
   },
   data: {},
   methods: {

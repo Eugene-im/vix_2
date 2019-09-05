@@ -10,7 +10,14 @@
         <div class="tab__active__title">{{ $t("designTab.kindOfButtonText") }}</div>
         <div class="tabs__input_radio_horizontal">
           <div class="tabs__input__variants_button-text">
-            <input checked type="radio" name="payment__method" id="Pay">
+            <input
+              checked
+              @click="emitGlobalClickEvent"
+              :value="$t('designTab.buttonVariantSelfService')"
+              type="radio"
+              name="payment__method"
+              id="Pay"
+            >
             <label
               class="input__variant"
               for="Pay"
@@ -20,7 +27,13 @@
             </div>
           </div>
           <div class="tabs__input__variants_button-text">
-            <input type="radio" name="payment__method" id="Buy">
+            <input
+              @click="emitGlobalClickEvent"
+              :value="$t('designTab.buttonVariantSelfProducts')"
+              type="radio"
+              name="payment__method"
+              id="Buy"
+            >
             <label
               class="input__variant"
               for="Buy"
@@ -30,7 +43,13 @@
             </div>
           </div>
           <div class="tabs__input__variants_button-text">
-            <input type="radio" name="payment__method" id="Donate">
+            <input
+              @click="emitGlobalClickEvent"
+              :value="$t('designTab.buttonVariantDonate')"
+              type="radio"
+              name="payment__method"
+              id="Donate"
+            >
             <label
               class="input__variant"
               for="Donate"
@@ -61,7 +80,14 @@
           >({{ $t("designTab.optional") }})</span>
         </div>
         <div class="tabs__input_text">
-          <input type="text" placeholder="text">
+          <input
+            id="text"
+            @input="emitGlobalClickEvent"
+            v-model="message"
+            type="text"
+            placeholder="text"
+          >
+          <!-- {{message}} -->
         </div>
       </div>
     </div>
@@ -69,7 +95,13 @@
       <div class="tab__content">
         <div class="tab__active__title_checkbox">
           <span>
-            <input type="checkbox" name="payment__method" id="paypal2">
+            <input
+              @click="emitGlobalClickEvent"
+              type="checkbox"
+              name="payment__method"
+              id="paypal2"
+              value="paypal2"
+            >
             <label class="input__variant" for="paypal2">{{ $t("designTab.usePP") }}</label>
           </span>
           <img src="../assets/img/paypal.svg" alt>
@@ -80,7 +112,13 @@
       <div class="tab__content">
         <div class="tab__active__title_checkbox">
           <span>
-            <input type="checkbox" name="payment__method" id="wixColor">
+            <input
+              @click="emitGlobalClickEvent"
+              value="wixColor"
+              type="checkbox"
+              name="payment__method"
+              id="wixColor"
+            >
             <label class="input__variant" for="wixColor">{{ $t("designTab.useWixColorSheme") }}</label>
           </span>
         </div>
@@ -164,9 +202,12 @@
       <div class="tab__content">
         <div class="tabs__input_text_reset">
           {{ $t("designTab.askResetFrase") }}
-          <span
+          <button
+            id="reset"
             class="button_reset"
-          >{{ $t("designTab.resetButton") }}</span>
+            @click="emitGlobalClickEvent"
+            value="reset"
+          >{{ $t("designTab.resetButton") }}</button>
         </div>
       </div>
     </div>

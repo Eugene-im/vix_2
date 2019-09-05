@@ -12,22 +12,25 @@
       </div>
     </a>
     <div class="button__block">
-      <button class="button__block__item button__block__item_front">{{ $t("buttonHead.button") }}</button>
+      <button class="button__block__item button__block__item_front">
+        {{ buttonText }}
+        <img src="../assets/img/paypal.svg" v-if="imgButton == 1" alt>
+      </button>
       <div class="button__block__icons">
-        <div class="block__icons__item" >
-          <img src="../assets/img/paypal-light.svg" v-if="currentStatus && currentId == 'ae'" alt>
+        <div class="block__icons__item" v-if="paypal == 1">
+          <img src="../assets/img/paypal-light.svg" alt>
         </div>
-        <div class="block__icons__item" >
-          <img src="../assets/img/master-card-dark.svg" v-if="currentStatus && currentId == 'dis'" alt>
+        <div class="block__icons__item" v-if="mc == 1">
+          <img src="../assets/img/master-card-dark.svg" alt>
         </div>
-        <div class="block__icons__item">
-          <img src="../assets/img/visa-dark.svg" v-if="currentStatus && currentId == 'visa'" alt>
+        <div class="block__icons__item" v-if="visa == 1">
+          <img src="../assets/img/visa-dark.svg" alt>
         </div>
-        <div class="block__icons__item">
-          <img src="../assets/img/discover-dark.svg" v-if="currentStatus && currentId == 'mc'" alt>
+        <div class="block__icons__item" v-if="dis == 1">
+          <img src="../assets/img/discover-dark.svg" alt>
         </div>
-        <div class="block__icons__item">
-          <img src="../assets/img/american-express-dark.svg" v-if="currentStatus && currentId == 'paypal'" alt>
+        <div class="block__icons__item" v-if="ae == 1">
+          <img src="../assets/img/american-express-dark.svg" alt>
         </div>
       </div>
     </div>
@@ -43,8 +46,14 @@ export default {
   data() {
     return {
       currentStatus: null,
-      currentId: null,
-    }
+      ae: null,
+      visa: null,
+      mc: null,
+      paypal: null,
+      dis: null,
+      imgButton: null,
+      buttonText: "button"
+    };
   },
   methods: {
     getLanguage: async function() {
@@ -53,14 +62,55 @@ export default {
       //    k
       //  }
       //);
+    },
+    reset: function() {
+      (this.currentStatus = null),
+        (this.ae = null),
+        (this.visa = null),
+        (this.mc = null),
+        (this.paypal = null),
+        (this.dis = null),
+        (this.imgButton = null),
+        (this.buttonText = "button");
     }
   },
   mounted() {
-    // Listen for the 'clicked-event' and its payload.
     EventBus.$on("clicked-event", res => {
-      this.currentStatus = res.checked;
-      this.currentId = res.id;
-      console.log(this.currentId, this.currentStatus);
+      console.log(res);
+      if (res.checked && res.id == "ae") {
+        this.ae = 1;
+      } else if (res.checked && res.id == "dis") {
+        this.dis = 1;
+      } else if (res.checked && res.id == "paypal") {
+        this.paypal = 1;
+      } else if (res.checked && res.id == "visa") {
+        this.visa = 1;
+      } else if (res.checked && res.id == "mc") {
+        this.mc = 1;
+      } else if (res.checked == false && res.id == "ae") {
+        this.ae = 0;
+      } else if (res.checked == false && res.id == "dis") {
+        this.dis = 0;
+      } else if (res.checked == false && res.id == "paypal") {
+        this.paypal = 0;
+      } else if (res.checked == false && res.id == "visa") {
+        this.visa = 0;
+      } else if (res.checked == false && res.id == "mc") {
+        this.mc = 0;
+      } else if (
+        res.id == "Pay" ||
+        res.id == "Buy" ||
+        res.id == "Donate" ||
+        res.id == "text"
+      ) {
+        this.buttonText = res.value;
+        this.imgButton = null;
+      } else if (res.id == "reset") {
+        this.reset();
+      } else if (res.id == "paypal2") {
+        this.imgButton = 1;
+        this.buttonText = "";
+      }
     });
   }
 };
