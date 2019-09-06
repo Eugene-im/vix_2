@@ -1,6 +1,7 @@
 <template>
   <div class="button__wrapper">
-    <a href="/#/settings" style="text-decoration: none" class="call-settings__block">
+    <a href="/#/" style="text-decoration: none" class="call-settings__block">
+    <!--<a href="/#/settings" style="text-decoration: none" class="call-settings__block">-->
       <div class="call-settings__icn">
         <img src="../assets/img/rectangle-46.svg" alt>
       </div>
