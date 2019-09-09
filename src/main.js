@@ -8,6 +8,7 @@ import ukLocale from './locales/uk'
 import lang from './config'
 // import tabDesign from './components/tab_Design'
 Vue.config.productionTip = false
+Vue.config.silent = false
 Vue.use(VueI18n)
 // var language = null;
 
