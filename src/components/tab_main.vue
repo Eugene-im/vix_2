@@ -15,8 +15,7 @@
 
 <script>
 export default {
-  name: 'tabMain',
-  data: {}
+  name: 'tabMain'
 }
 </script>
 <style lang="scss">

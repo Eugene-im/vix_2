@@ -11,7 +11,11 @@
             <div class="userblock__item__text">{{ $t("supportTab.callToFeedback") }}</div>
           </a>
           <a href="#" class="userblock__item">
-            <img class="userblock__item__img" src="../assets/img/computer-invite-to-client-portal.svg" alt>
+            <img
+              class="userblock__item__img"
+              src="../assets/img/computer-invite-to-client-portal.svg"
+              alt
+            >
             <div class="userblock__item__text">{{ $t("supportTab.callToFAQ") }}</div>
           </a>
         </div>
@@ -46,9 +50,6 @@
 
 <script>
 export default {
-  name: 'tabSupport',
-  data: {
-    visible: false
-  }
+  name: "tabSupport"
 }
 </script>

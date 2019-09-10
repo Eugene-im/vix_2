@@ -68,9 +68,6 @@
 
 <script>
 export default {
-  name: 'tabMore',
-  data: {
-    visible: false
-  }
+  name: 'tabMore'
 }
 </script>

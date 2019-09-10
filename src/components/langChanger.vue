@@ -14,5 +14,5 @@ export default {
       langs: ["en", "ru", "ua"]
     };
   }
-};
+}
 </script>
