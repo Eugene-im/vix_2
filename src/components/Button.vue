@@ -53,7 +53,7 @@ export default {
       paypal: null,
       dis: null,
       imgButton: null,
-      buttonText: 'button'
+      buttonText: 'Pay'
     }
   },
   methods: {
@@ -72,7 +72,7 @@ export default {
       (this.paypal = null),
       (this.dis = null),
       (this.imgButton = null),
-      (this.buttonText = 'button')
+      (this.buttonText = 'Pay')
     }
   },
   mounted () {
