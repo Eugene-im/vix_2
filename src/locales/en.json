@@ -25,7 +25,7 @@
         "buttonVariantLabelDonate":"Accept donations",
         "buttonVariantDonate":"Donate",
         "chooseLang":"Language",
-        "freeText":"Free text",
+        "freeText":"Button Text",
         "optional":"Optional",
         "usePP":"Use PayPal icon on button",
         "useWixColorSheme":"Use your Wix color scheme",
