@@ -5,7 +5,7 @@
         <p class="tab__content__title_large">{{ $t("designTab.callToDesign") }}</p>
       </div>
     </div>
-    <div class="tabs__row">
+   <!-- <div class="tabs__row">
       <div class="tab__content">
         <div class="tab__active__title">{{ $t("designTab.kindOfButtonText") }}</div>
         <div class="tabs__input_radio_horizontal">
@@ -70,7 +70,7 @@
           </select>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="tabs__row">
       <div class="tab__content">
         <div class="tab__active__title">
