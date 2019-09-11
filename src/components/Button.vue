@@ -104,6 +104,11 @@ export default {
         res.id == 'Donate' ||
         res.id == 'text'
       ) {
+        this.buttonText = buttonText
+        this.imgButton = null
+      }else if (
+        res.id == 'text' && res.value == ''
+      ) {
         this.buttonText = res.value
         this.imgButton = null
       } else if (res.id == 'reset') {
