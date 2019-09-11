@@ -75,9 +75,9 @@
       <div class="tab__content">
         <div class="tab__active__title">
           {{ $t("designTab.freeText") }}
-          <span
+          <!-- <span
             class="tab__active__title_small"
-          >({{ $t("designTab.optional") }})</span>
+          >({{ $t("designTab.optional") }})</span>-->
         </div>
         <div class="tabs__input_text">
           <input
@@ -87,7 +87,6 @@
             type="text"
             placeholder="text"
           >
-          <!-- {{message}} -->
         </div>
       </div>
     </div>
