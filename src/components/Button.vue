@@ -102,7 +102,7 @@ export default {
         res.id == 'Pay' ||
         res.id == 'Buy' ||
         res.id == 'Donate' ||
-        res.id == 'text'
+        res.id == 'text' && res.value != ''
       ) {
         this.buttonText = res.value
         this.imgButton = null
