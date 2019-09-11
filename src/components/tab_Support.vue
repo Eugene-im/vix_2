@@ -50,6 +50,6 @@
 
 <script>
 export default {
-  name: "tabSupport"
+  name: 'tabSupport'
 }
 </script>

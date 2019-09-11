@@ -42,16 +42,16 @@
 </template>
 
 <script>
-import { Tabs, Tab } from "vue-slim-tabs";
-import tabMain from "@/components/tab_main.vue";
-import tabSettings from "@/components/tab_Settings.vue";
-import tabDesign from "@/components/tab_Design.vue";
-import tabMore from "@/components/tab_More.vue";
-import tabSupport from "@/components/tab_Support.vue";
-import ButtonVcita from "@/components/Button.vue";
+import { Tabs, Tab } from 'vue-slim-tabs'
+import tabMain from '@/components/tab_main.vue'
+import tabSettings from '@/components/tab_Settings.vue'
+import tabDesign from '@/components/tab_Design.vue'
+import tabMore from '@/components/tab_More.vue'
+import tabSupport from '@/components/tab_Support.vue'
+import ButtonVcita from '@/components/Button.vue'
 
 export default {
-  name: "Settings",
+  name: 'Settings',
   components: {
     Tabs,
     Tab,
@@ -62,11 +62,13 @@ export default {
     tabSupport,
     ButtonVcita
   },
-  data: {},
+  data: function () {
+    return {}
+  },
   methods: {
-    click: function() {}
+    click: function () {}
   }
-};
+}
 </script>
 
 <style lang="scss">

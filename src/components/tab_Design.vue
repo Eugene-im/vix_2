@@ -217,26 +217,26 @@
 <script>
 // import lang from '../../config'
 
-import { EventBus } from "../event-bus.js";
+import { EventBus } from '../event-bus.js'
 
 export default {
-  name: "tabDesign",
-  data() {
+  name: 'tabDesign',
+  data () {
     return {
       visible: false,
-      message: "",
+      message: '',
       Count: 0,
-      langs: ["en", "ru", "uk"]
-    };
+      langs: ['en', 'ru', 'uk']
+    }
   },
   methods: {
-    emitGlobalClickEvent(event) {
+    emitGlobalClickEvent (event) {
       // Send the event on a channel (i-got-clicked) with a payload (the click count.)
-      EventBus.$emit("clicked-event", {
+      EventBus.$emit('clicked-event', {
         id: event.target.id,
         checked: event.target.checked,
         value: event.target.value
-      });
+      })
     }
   }
 }
