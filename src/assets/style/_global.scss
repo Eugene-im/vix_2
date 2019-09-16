@@ -223,8 +223,21 @@
 	padding-bottom: 10px;
 	align-items: center;
 	flex: 1;
-	font-weight: 600
+	font-weight: 600;
 }
+
+.tab__active__title_checkbox,
+.tabs__input__variants_ch {
+	span {
+		display: flex;
+		align-items: center;
+	}
+}
+
+// .tabs__input__variants_ch span input{
+// 	max-width: 200px;
+// 	width: 100%;
+// }
 
 .tabs__row {
 	flex-direction: column;
@@ -289,7 +302,9 @@
 	font-size: 14px;
 	color: #54698d;
 	user-select: none;
-	max-width: 95px;
+	// max-width: 95px;
+	max-width: 200px;
+	width: 100%;
 }
 
 .tabs__input__variants_button-text {

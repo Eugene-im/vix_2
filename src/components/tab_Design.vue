@@ -77,12 +77,12 @@
           {{ $t("designTab.freeText") }}
           <!-- <span
             class="tab__active__title_small"
-          >({{ $t("designTab.optional") }})</span>-->
+          >({{ $t("designTab.optional") }})</span> -->
         </div>
         <div class="tabs__input_text">
           <input
             id="text"
-            @input="emitGlobalClickEvent"
+            v-on:keyup.enter="emitGlobalClickEvent"
             v-model="message"
             type="text"
             placeholder="text"
