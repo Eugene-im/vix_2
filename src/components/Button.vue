@@ -14,8 +14,8 @@
     </a>
     <div class="button__block">
       <button class="button__block__item button__block__item_front">
-        {{ buttonText }}
         <img src="../assets/img/paypal.svg" v-if="imgButton == 1" alt>
+        <div>{{ buttonText }}</div>
       </button>
       <div class="button__block__icons">
         <div class="block__icons__item" v-if="paypal == 1">
@@ -105,18 +105,18 @@ export default {
         (res.id == "text" && res.value != "")
       ) {
         this.buttonText = res.value;
-        this.imgButton = null;
+        // this.imgButton = null;
       } else if (res.id == "text" && res.value == "") {
         this.buttonText = "Pay";
-        this.imgButton = null;
+        // this.imgButton = null;
       } else if (res.id == "reset") {
         this.reset();
       } else if (res.checked && res.id == "paypal2") {
         this.imgButton = 1;
-        this.buttonText = "";
+        // this.buttonText = "";
       } else if (!res.checked && res.id == "paypal2") {
         this.imgButton = 0;
-        this.buttonText = "Pay";
+        // this.buttonText = "Pay";
       }
     });
   }

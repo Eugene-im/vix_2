@@ -33,7 +33,7 @@
 
 .button__block__item {
     width: 120px;
-    height: 36px;
+    min-height: 36px;
     border-radius: 100px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
     border: solid 1px #b58c00;
@@ -51,6 +51,7 @@
 
 .button__block__item_front{
     width: 120px;
+    padding: 4px;
 }
 
 .call-settings__icon {
