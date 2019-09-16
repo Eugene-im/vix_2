@@ -1,7 +1,7 @@
 <template>
   <div class="button__wrapper">
     <a href="/#/" style="text-decoration: none" class="call-settings__block">
-    <!--<a href="/#/settings" style="text-decoration: none" class="call-settings__block">-->
+      <!--<a href="/#/settings" style="text-decoration: none" class="call-settings__block">-->
       <div class="call-settings__icn">
         <img src="../assets/img/rectangle-46.svg" alt>
       </div>
@@ -39,12 +39,12 @@
 </template>
 
 <script>
-import tabDesign from './tab_Design'
-import { EventBus } from '../event-bus.js'
+import tabDesign from "./tab_Design";
+import { EventBus } from "../event-bus.js";
 export default {
-  name: 'ButtonVcita',
-  props: ['checkboxes'],
-  data () {
+  name: "ButtonVcita",
+  props: ["checkboxes"],
+  data() {
     return {
       currentStatus: null,
       ae: null,
@@ -53,73 +53,74 @@ export default {
       paypal: null,
       dis: null,
       imgButton: null,
-      buttonText: 'Pay'
-    }
+      buttonText: "Pay"
+    };
   },
   methods: {
-    getLanguage: async function () {
+    getLanguage: async function() {
       // axios.get('URL').then(
       //  res => {
       //    k
       //  }
       // );
     },
-    reset: function () {
+    reset: function() {
       (this.currentStatus = null),
-      (this.ae = null),
-      (this.visa = null),
-      (this.mc = null),
-      (this.paypal = null),
-      (this.dis = null),
-      (this.imgButton = null),
-      (this.buttonText = 'Pay')
+        (this.ae = null),
+        (this.visa = null),
+        (this.mc = null),
+        (this.paypal = null),
+        (this.dis = null),
+        (this.imgButton = null),
+        (this.buttonText = "Pay");
     }
   },
-  mounted () {
-    EventBus.$on('clicked-event', res => {
-      console.log(res)
-      if (res.checked && res.id == 'ae') {
-        this.ae = 1
-      } else if (res.checked && res.id == 'dis') {
-        this.dis = 1
-      } else if (res.checked && res.id == 'paypal') {
-        this.paypal = 1
-      } else if (res.checked && res.id == 'visa') {
-        this.visa = 1
-      } else if (res.checked && res.id == 'mc') {
-        this.mc = 1
-      } else if (res.checked == false && res.id == 'ae') {
-        this.ae = 0
-      } else if (res.checked == false && res.id == 'dis') {
-        this.dis = 0
-      } else if (res.checked == false && res.id == 'paypal') {
-        this.paypal = 0
-      } else if (res.checked == false && res.id == 'visa') {
-        this.visa = 0
-      } else if (res.checked == false && res.id == 'mc') {
-        this.mc = 0
+  mounted() {
+    EventBus.$on("clicked-event", res => {
+      console.log(res);
+      if (res.checked && res.id == "ae") {
+        this.ae = 1;
+      } else if (res.checked && res.id == "dis") {
+        this.dis = 1;
+      } else if (res.checked && res.id == "paypal") {
+        this.paypal = 1;
+      } else if (res.checked && res.id == "visa") {
+        this.visa = 1;
+      } else if (res.checked && res.id == "mc") {
+        this.mc = 1;
+      } else if (res.checked == false && res.id == "ae") {
+        this.ae = 0;
+      } else if (res.checked == false && res.id == "dis") {
+        this.dis = 0;
+      } else if (res.checked == false && res.id == "paypal") {
+        this.paypal = 0;
+      } else if (res.checked == false && res.id == "visa") {
+        this.visa = 0;
+      } else if (res.checked == false && res.id == "mc") {
+        this.mc = 0;
       } else if (
-        res.id == 'Pay' ||
-        res.id == 'Buy' ||
-        res.id == 'Donate' ||
-        res.id == 'text' && res.value != ''
+        res.id == "Pay" ||
+        res.id == "Buy" ||
+        res.id == "Donate" ||
+        (res.id == "text" && res.value != "")
       ) {
-        this.buttonText = res.value
-        this.imgButton = null
-      }else if (
-        res.id == 'text' && res.value == ''
-      ) {
-        this.buttonText = 'Pay'
-        this.imgButton = null
-      } else if (res.id == 'reset') {
-        this.reset()
-      } else if (res.id == 'paypal2') {
-        this.imgButton = 1
-        this.buttonText = ''
+        this.buttonText = res.value;
+        this.imgButton = null;
+      } else if (res.id == "text" && res.value == "") {
+        this.buttonText = "Pay";
+        this.imgButton = null;
+      } else if (res.id == "reset") {
+        this.reset();
+      } else if (res.checked && res.id == "paypal2") {
+        this.imgButton = 1;
+        this.buttonText = "";
+      } else if (!res.checked && res.id == "paypal2") {
+        this.imgButton = 0;
+        this.buttonText = "Pay";
       }
-    })
+    });
   }
-}
+};
 </script>
 
 <style lang="scss">
