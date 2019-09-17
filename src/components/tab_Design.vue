@@ -82,7 +82,7 @@
         <div class="tabs__input_text">
           <input
             id="text"
-            v-on:keyup.enter="emitGlobalClickEvent"
+            v-on:keydown.enter="emitGlobalClickEvent"
             v-model="message"
             type="text"
             placeholder="text"
