@@ -39,6 +39,7 @@
 </template>
 
 <script>
+import axios from "axios";
 import tabDesign from "./tab_Design";
 import { EventBus } from "../event-bus.js";
 export default {
@@ -76,6 +77,23 @@ export default {
     }
   },
   mounted() {
+    axios
+      .get(`http://localhost:8000/read`)
+      .then(response => {
+        // JSON responses are automatically parsed.
+        console.log(response.data);
+        // this.posts = response.data
+        (this.ae = response.data.ae),
+          (this.visa = response.data.visa),
+          (this.mc = response.data.mc),
+          (this.paypal = response.data.paypal),
+          (this.dis = response.data.dis),
+          (this.imgButton = response.data.imgButton),
+          (this.buttonText = response.data.buttonText || "Pay");
+      })
+      .catch(e => {
+        this.errors.push(e);
+      });
     EventBus.$on("clicked-event", res => {
       console.log(res);
       if (res.checked && res.id == "ae") {
