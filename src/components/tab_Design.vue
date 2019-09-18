@@ -80,17 +80,8 @@
           >({{ $t("designTab.optional") }})</span>-->
         </div>
         <div class="tabs__input_text">
-<<<<<<< HEAD
-          <input
-            id="text"
-            @click="emitGlobalClickEvent"
-            v-model="message"
-            type="text"
-            placeholder="text"
-          >
-=======
+
           <input id="text" v-on:keyup.enter="ax" v-model="message" type="text" placeholder="text">
->>>>>>> fix1
         </div>
       </div>
     </div>
