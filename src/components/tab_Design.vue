@@ -5,7 +5,7 @@
         <p class="tab__content__title_large">{{ $t("designTab.callToDesign") }}</p>
       </div>
     </div>
-   <!-- <div class="tabs__row">
+    <!-- <div class="tabs__row">
       <div class="tab__content">
         <div class="tab__active__title">{{ $t("designTab.kindOfButtonText") }}</div>
         <div class="tabs__input_radio_horizontal">
@@ -70,23 +70,18 @@
           </select>
         </div>
       </div>
-    </div> -->
+    </div>-->
     <div class="tabs__row">
       <div class="tab__content">
         <div class="tab__active__title">
           {{ $t("designTab.freeText") }}
           <!-- <span
             class="tab__active__title_small"
-          >({{ $t("designTab.optional") }})</span> -->
+          >({{ $t("designTab.optional") }})</span>-->
         </div>
         <div class="tabs__input_text">
-          <input
-            id="text"
-            @click="emitGlobalClickEvent"
-            v-model="message"
-            type="text"
-            placeholder="text"
-          >
+
+          <input id="text" v-on:keyup.enter="ax" v-model="message" type="text" placeholder="text">
         </div>
       </div>
     </div>
@@ -95,10 +90,11 @@
         <div class="tab__active__title_checkbox">
           <span>
             <input
-              @click="emitGlobalClickEvent"
+              @click="ax"
               type="checkbox"
               name="payment__method"
               id="paypal2"
+              :checked="paypal2 == 1"
               value="paypal2"
             >
             <label class="input__variant" for="paypal2">{{ $t("designTab.usePP") }}</label>
@@ -112,7 +108,7 @@
         <div class="tab__active__title_checkbox">
           <span>
             <input
-              @click="emitGlobalClickEvent"
+              @click="ax"
               value="wixColor"
               type="checkbox"
               name="payment__method"
@@ -129,7 +125,13 @@
         <div class="tabs__input_checkbox">
           <p class="tabs__input__variants_ch">
             <span>
-              <input type="checkbox" id="ae" ref="americanExpress" @click="emitGlobalClickEvent">
+              <input
+                type="checkbox"
+                id="ae"
+                ref="americanExpress"
+                :checked="ae == 1"
+                @click="ax"
+              >
               <label class="input__variant" for="ae">American Express</label>
             </span>
             <img src="../assets/img/american-express-dark_x2.svg" alt>
@@ -141,7 +143,8 @@
                 id="dis"
                 value="dis"
                 ref="discover"
-                @click="emitGlobalClickEvent"
+                :checked="dis == 1"
+                @click="ax"
               >
               <label class="input__variant" for="dis">Discover</label>
             </span>
@@ -154,7 +157,8 @@
                 id="visa"
                 value="visa"
                 ref="Visa"
-                @click="emitGlobalClickEvent"
+                :checked="visa == 1"
+                @click="ax"
               >
               <label class="input__variant" for="visa">Visa</label>
             </span>
@@ -167,7 +171,8 @@
                 id="mc"
                 value="mc"
                 ref="masterCard"
-                @click="emitGlobalClickEvent"
+                :checked="mc == 1"
+                @click="ax"
               >
               <label class="input__variant" for="mc">Master Card</label>
             </span>
@@ -180,7 +185,8 @@
                 id="paypal"
                 value="paypal"
                 ref="payPal"
-                @click="emitGlobalClickEvent"
+                :checked="paypal == 1"
+                @click="ax"
               >
               <label class="input__variant" for="paypal">PayPal</label>
             </span>
@@ -204,7 +210,7 @@
           <button
             id="reset"
             class="button_reset"
-            @click="emitGlobalClickEvent"
+            @click="ax"
             value="reset"
           >{{ $t("designTab.resetButton") }}</button>
         </div>
@@ -216,27 +222,118 @@
 <script>
 // import lang from '../../config'
 
-import { EventBus } from '../event-bus.js'
+import axios from "axios";
+import { EventBus } from "../event-bus.js";
 
 export default {
-  name: 'tabDesign',
-  data () {
+  name: "tabDesign",
+  data() {
     return {
       visible: false,
-      message: '',
+      message: "",
       Count: 0,
-      langs: ['en', 'ru', 'uk']
-    }
+      langs: ["en", "ru", "uk"],
+      ae: "0",
+      visa: "0",
+      mc: "0",
+      paypal: "0",
+      dis: "0",
+      imgButton: "0",
+      paypal2: "0",
+      buttonText: "Pay"
+    };
   },
   methods: {
-    emitGlobalClickEvent (event) {
+    ax(event) {
+      var json2 = {
+        ae: "0",
+        visa: "0",
+        mc: "0",
+        paypal: "0",
+        dis: "0",
+        imgButton: "0",
+        paypal2: "0",
+        buttonText: "Pay"
+      };
+      if (event.target.checked && event.target.id == "ae") {
+        json2.ae = 1;
+      } else if (event.target.checked && event.target.id == "dis") {
+        json2.dis = 1;
+      } else if (event.target.checked && event.target.id == "paypal") {
+        json2.paypal = 1;
+      } else if (event.target.checked && event.target.id == "visa") {
+        json2.visa = 1;
+      } else if (event.target.checked && event.target.id == "mc") {
+        json2.mc = 1;
+      } else if (event.target.checked == false && event.target.id == "ae") {
+        json2.ae = 0;
+      } else if (event.target.checked == false && event.target.id == "dis") {
+        json2.dis = 0;
+      } else if (event.target.checked == false && event.target.id == "paypal") {
+        json2.paypal = 0;
+      } else if (event.target.checked == false && event.target.id == "visa") {
+        json2.visa = 0;
+      } else if (event.target.checked == false && event.target.id == "mc") {
+        json2.mc = 0;
+      } else if (
+        event.target.id == "Pay" ||
+        event.target.id == "Buy" ||
+        event.target.id == "Donate" ||
+        (event.target.id == "text" && event.target.value != "")
+      ) {
+        json2.buttonText = event.target.value;
+        // json2.imgButton = null;
+      } else if (event.target.id == "text" && event.target.value == "") {
+        json2.buttonText = "Pay";
+        // json2.imgButton = null;
+      } else if (event.target.id == "reset") {
+        json2.event.targetet();
+      } else if (event.target.checked && event.target.id == "paypal2") {
+        json2.imgButton = 1;
+        // json2.buttonText = "";
+      } else if (!event.target.checked && event.target.id == "paypal2") {
+        json2.imgButton = 0;
+        // json2.buttonText = "Pay";
+      }
+
+      axios
+        .post("http://localhost:8000/save", json2)
+        .then(function(response) {
+          console.log(response);
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+    },
+    emitGlobalClickEvent(event) {
       // Send the event on a channel (i-got-clicked) with a payload (the click count.)
-      EventBus.$emit('clicked-event', {
+      EventBus.$emit("clicked-event", {
         id: event.target.id,
         checked: event.target.checked,
         value: event.target.value
-      })
+      });
     }
+  },
+  mounted() {
+    axios
+      .get(`http://localhost:8000/read`)
+      .then(response => {
+        // JSON responses are automatically parsed.
+        console.log(response.data);
+        // this.posts = response.data
+        (this.ae = response.data.ae),
+          (this.visa = response.data.visa),
+          (this.mc = response.data.mc),
+          (this.paypal = response.data.paypal),
+          (this.dis = response.data.dis),
+          (this.imgButton = response.data.imgButton),
+          (this.paypal2 = response.data.paypal2),
+          (this.buttonText = response.data.buttonText);
+        // console.log(this.json2);
+      })
+      .catch(e => {
+        console.log(e);
+      });
   }
-}
+};
 </script>
