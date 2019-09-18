@@ -192,7 +192,7 @@
     <!-- <div class="tabs__row">
                         <div class="tab__content">
                             <div class="tabs__input_text_reset">
-                                Not happy with your desing?
+                                Not happy with your design?
                                 <img src="#" alt="arrow">
                             </div>
                         </div>

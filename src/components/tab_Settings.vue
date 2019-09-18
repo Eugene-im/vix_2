@@ -16,7 +16,7 @@
         <div class="tabs__input_radio">
           <p class="tabs__input__variants">
             <input type="radio" name="payment__method" id="PP" >
-            <label class="input__variant" for="PP">PayPall</label>
+            <label class="input__variant" for="PP">PayPal</label>
           </p>
           <p class="tabs__input__variants">
             <input type="radio" name="payment__method" id="St">
@@ -44,7 +44,7 @@
       <div class="tab__content">
         <div class="tab__active__title">
           Product name
-          <span class="tab__active__title_small">(Optinal)</span>
+          <span class="tab__active__title_small">(Optional)</span>
         </div>
         <div class="tabs__input_text">
           <input type="text" placeholder="text">
@@ -55,7 +55,7 @@
       <div class="tab__content">
         <div class="tab__active__title">
           Product price
-          <span class="tab__active__title_small">(Optinal)</span>
+          <span class="tab__active__title_small">(Optional)</span>
         </div>
         <div class="tabs__input_text">
           <input type="text" placeholder="text">

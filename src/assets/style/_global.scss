@@ -62,6 +62,8 @@
 	background-color: #fafbfc;
 	display: flex;
 	flex-direction: column;
+	overflow: auto;
+	max-height: 528px;
 }
 
 .about__logo {
@@ -304,7 +306,7 @@
 	user-select: none;
 	// max-width: 95px;
 	max-width: 200px;
-	width: 100%;
+	padding-left: 40px;
 }
 
 .tabs__input__variants_button-text {
