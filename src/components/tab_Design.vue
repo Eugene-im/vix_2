@@ -255,8 +255,6 @@ export default {
         paypal2: "0",
         buttonText: "Pay"
       };
-      console.log('val', event.target.value);
-      console.log('target', event.target.id);
 
       if (event.target.checked && event.target.id == "ae") {
         localStorage.ae = 1;
@@ -293,10 +291,10 @@ export default {
       } else if (event.target.id == "reset") {
         json2.event.targetet();
       } else if (event.target.checked && event.target.id == "paypal2") {
-        json2.imgButton = 1;
+        localStorage.imgButton = 1;
         // json2.buttonText = "";
       } else if (!event.target.checked && event.target.id == "paypal2") {
-        json2.imgButton = 0;
+        localStorage.imgButton = 0;
         // json2.buttonText = "Pay";
       }
       //
