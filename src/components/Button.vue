@@ -54,7 +54,8 @@ export default {
       paypal: null,
       dis: null,
       imgButton: null,
-      buttonText: "Pay"
+      buttonText: "Pay",
+      question: localStorage.ae
     };
   },
   methods: {
@@ -67,33 +68,47 @@ export default {
     },
     reset: function() {
       (this.currentStatus = null),
-        (this.ae = null),
-        (this.visa = null),
-        (this.mc = null),
-        (this.paypal = null),
-        (this.dis = null),
-        (this.imgButton = null),
-        (this.buttonText = "Pay");
+      (this.ae = null),
+      (this.visa = null),
+      (this.mc = null),
+      (this.paypal = null),
+      (this.dis = null),
+      (this.imgButton = null),
+      (this.buttonText = "Pay");
+    },
+    checkLocal: function () {
+      setInterval(() => {
+        this.ae = localStorage.ae ;
+        this.currentStatus = localStorage.currentStatus ;
+        this.visa = localStorage.visa ;
+        this.mc = localStorage.mc ;
+        this.paypal = localStorage.paypal ;
+        this.dis = localStorage.dis ;
+        this.imgButton = localStorage.imgButton ;
+        this.buttonText =  localStorage.buttonText || 'Pay' ;
+      }, 500);
     }
   },
-  mounted() {
-    axios
-      .get(`http://localhost:8000/read`)
-      .then(response => {
-        // JSON responses are automatically parsed.
-        console.log(response.data);
-        // this.posts = response.data
-        (this.ae = response.data.ae),
-          (this.visa = response.data.visa),
-          (this.mc = response.data.mc),
-          (this.paypal = response.data.paypal),
-          (this.dis = response.data.dis),
-          (this.imgButton = response.data.imgButton),
-          (this.buttonText = response.data.buttonText || "Pay");
-      })
-      .catch(e => {
-        this.errors.push(e);
-      });
+  mounted () {
+    // axios
+    //   .get(`http://localhost:8000/read`)
+    //   .then(response => {
+    //     // JSON responses are automatically parsed.
+    //     console.log(response.data);
+    //     // this.posts = response.data
+    //     (this.ae = response.data.ae),
+    //     (this.visa = response.data.visa),
+    //     (this.mc = response.data.mc),
+    //     (this.paypal = response.data.paypal),
+    //     (this.dis = response.data.dis),
+    //     (this.imgButton = response.data.imgButton),
+    //     (this.buttonText = response.data.buttonText || "Pay");
+    //   })
+    //   .catch(e => {
+    //     this.errors.push(e);
+    //   });
+    this.checkLocal();
+
     EventBus.$on("clicked-event", res => {
       console.log(res);
       if (res.checked && res.id == "ae") {
@@ -137,6 +152,11 @@ export default {
         // this.buttonText = "Pay";
       }
     });
+  },
+  watch: {
+    question: function (newQuestion, oldQuestion) {
+      console.log('yex');
+    }
   }
 };
 </script>

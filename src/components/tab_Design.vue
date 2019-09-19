@@ -81,7 +81,7 @@
         </div>
         <div class="tabs__input_text">
 
-          <input id="text" v-on:keyup.enter="ax" v-model="message" type="text" placeholder="text">
+          <input id="text" v-on:keyup="ax" v-model="message" type="text" placeholder="text">
         </div>
       </div>
     </div>
@@ -255,36 +255,40 @@ export default {
         paypal2: "0",
         buttonText: "Pay"
       };
+      console.log('val', event.target.value);
+      console.log('target', event.target.id);
+
       if (event.target.checked && event.target.id == "ae") {
-        json2.ae = 1;
+        localStorage.ae = 1;
       } else if (event.target.checked && event.target.id == "dis") {
-        json2.dis = 1;
+        localStorage.dis = 1;
       } else if (event.target.checked && event.target.id == "paypal") {
-        json2.paypal = 1;
+        localStorage.paypal = 1;
       } else if (event.target.checked && event.target.id == "visa") {
-        json2.visa = 1;
+        localStorage.visa = 1;
       } else if (event.target.checked && event.target.id == "mc") {
-        json2.mc = 1;
+        localStorage.mc = 1;
       } else if (event.target.checked == false && event.target.id == "ae") {
-        json2.ae = 0;
+        localStorage.ae = 0;
       } else if (event.target.checked == false && event.target.id == "dis") {
-        json2.dis = 0;
+        localStorage.dis = 0;
       } else if (event.target.checked == false && event.target.id == "paypal") {
-        json2.paypal = 0;
+        localStorage.paypal = 0;
       } else if (event.target.checked == false && event.target.id == "visa") {
-        json2.visa = 0;
+        localStorage.visa = 0;
       } else if (event.target.checked == false && event.target.id == "mc") {
-        json2.mc = 0;
+        localStorage.mc = 0;
       } else if (
         event.target.id == "Pay" ||
         event.target.id == "Buy" ||
         event.target.id == "Donate" ||
         (event.target.id == "text" && event.target.value != "")
       ) {
-        json2.buttonText = event.target.value;
+        console.log('yes', event.target.value);
+        localStorage.buttonText = event.target.value;
         // json2.imgButton = null;
       } else if (event.target.id == "text" && event.target.value == "") {
-        json2.buttonText = "Pay";
+        localStorage.buttonText = "Pay";
         // json2.imgButton = null;
       } else if (event.target.id == "reset") {
         json2.event.targetet();
@@ -295,45 +299,45 @@ export default {
         json2.imgButton = 0;
         // json2.buttonText = "Pay";
       }
-
-      axios
-        .post("http://localhost:8000/save", json2)
-        .then(function(response) {
-          console.log(response);
-        })
-        .catch(function(error) {
-          console.log(error);
-        });
-    },
-    emitGlobalClickEvent(event) {
-      // Send the event on a channel (i-got-clicked) with a payload (the click count.)
-      EventBus.$emit("clicked-event", {
-        id: event.target.id,
-        checked: event.target.checked,
-        value: event.target.value
-      });
+      //
+      // axios
+      //   .post("http://localhost:8000/save", json2)
+      //   .then(function(response) {
+      //     console.log(response);
+      //   })
+      //   .catch(function(error) {
+      //     console.log(error);
+      //   });
     }
+    // emitGlobalClickEvent(event) {
+    //   // Send the event on a channel (i-got-clicked) with a payload (the click count.)
+    //   EventBus.$emit("clicked-event", {
+    //     id: event.target.id,
+    //     checked: event.target.checked,
+    //     value: event.target.value
+    //   });
+    // }
   },
   mounted() {
-    axios
-      .get(`http://localhost:8000/read`)
-      .then(response => {
-        // JSON responses are automatically parsed.
-        console.log(response.data);
-        // this.posts = response.data
-        (this.ae = response.data.ae),
-          (this.visa = response.data.visa),
-          (this.mc = response.data.mc),
-          (this.paypal = response.data.paypal),
-          (this.dis = response.data.dis),
-          (this.imgButton = response.data.imgButton),
-          (this.paypal2 = response.data.paypal2),
-          (this.buttonText = response.data.buttonText);
-        // console.log(this.json2);
-      })
-      .catch(e => {
-        console.log(e);
-      });
+    // axios
+    //   .get(`http://localhost:8000/read`)
+    //   .then(response => {
+    //     // JSON responses are automatically parsed.
+    //     console.log(response.data);
+    //     // this.posts = response.data
+    //     (this.ae = response.data.ae),
+    //       (this.visa = response.data.visa),
+    //       (this.mc = response.data.mc),
+    //       (this.paypal = response.data.paypal),
+    //       (this.dis = response.data.dis),
+    //       (this.imgButton = response.data.imgButton),
+    //       (this.paypal2 = response.data.paypal2),
+    //       (this.buttonText = response.data.buttonText);
+    //     // console.log(this.json2);
+    //   })
+    //   .catch(e => {
+    //     console.log(e);
+    //   });
   }
 };
 </script>
